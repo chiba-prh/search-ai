@@ -1,0 +1,31 @@
+---
+date: "{{ date }}"
+tags:
+  - AI-Digest
+sources: {{ sources | length }}
+---
+
+# AI Daily Digest — {{ date }}
+
+{% for article in articles %}
+## {{ loop.index }}. {{ article.title }}
+
+| Field | Value |
+|---|---|
+| **Source** | {{ article.source }} |
+| **URL** | [{{ article.url }}]({{ article.url }}) |
+| **Published** | {{ article.published }} |
+| **Importance** | {{ "⭐" * article.importance }} ({{ article.importance }}/5) |
+
+> {{ article.summary }}
+
+{% for point in article.bullet_points %}
+- {{ point }}
+{% endfor %}
+
+`Tags:` {{ article.tags | join(", ") }}
+
+---
+{% endfor %}
+
+> Generated at {{ generated_at }} by AI Daily Digest

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "preview-server",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["scripts/preview_server.py"],
+      "port": 8080
+    },
+    {
+      "name": "fetch-digest",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["scripts/fetch_ai_news.py"],
+      "port": 0
+    }
+  ]
+}

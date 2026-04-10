@@ -113,7 +113,7 @@ def fetch_articles_for_source(
     google_search_tool = types.Tool(google_search=types.GoogleSearch())
 
     try:
-        text = _call_gemini(client, "gemini-2.0-flash", prompt, tools=[google_search_tool])
+        text = _call_gemini(client, "gemini-2.5-flash-lite", prompt, tools=[google_search_tool])
     except Exception as e:
         print(f"  ERROR: Failed to fetch from {source_name}: {e}", file=sys.stderr)
         return []
@@ -144,7 +144,7 @@ def analyze_article(client: genai.Client, article: dict) -> dict:
     )
 
     try:
-        text = _call_gemini(client, "gemini-2.0-flash", prompt)
+        text = _call_gemini(client, "gemini-2.5-flash-lite", prompt)
     except Exception as e:
         print(f"  ERROR: Analysis failed for {article.get('title', '?')}: {e}", file=sys.stderr)
         return {

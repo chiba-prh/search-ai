@@ -5,7 +5,8 @@
       "name": "preview-server",
       "runtimeExecutable": "python",
       "runtimeArgs": ["scripts/preview_server.py"],
-      "port": 8080
+      "port": 8080,
+      "autoPort": true
     },
     {
       "name": "fetch-digest",

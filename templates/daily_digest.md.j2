@@ -9,6 +9,7 @@ sources: {{ sources | length }}
 
 {% for article in articles %}
 ## {{ loop.index }}. {{ article.title }}
+{% if article.title_en is defined and article.title_en %}*{{ article.title_en }}*{% endif %}
 
 | Field | Value |
 |---|---|
@@ -17,7 +18,7 @@ sources: {{ sources | length }}
 | **Published** | {{ article.published }} |
 | **Importance** | {{ "⭐" * article.importance }} ({{ article.importance }}/5) |
 
-> {{ article.summary }}
+{{ article.summary }}
 
 {% for point in article.bullet_points %}
 - {{ point }}

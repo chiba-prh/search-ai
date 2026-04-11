@@ -6,6 +6,9 @@ import os
 import sys
 from pathlib import Path
 
+if sys.stdout.encoding != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8")
+
 PORT = int(os.environ.get("PORT", 8080))
 SERVE_DIR = Path(os.environ.get("OUTPUT_DIR", "output"))
 

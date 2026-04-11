@@ -54,28 +54,42 @@ def get_client() -> genai.Client:
 # Fetch helpers
 # ---------------------------------------------------------------------------
 
-SEARCH_PROMPT_TEMPLATE = """\
-You are an AI news researcher. Find the {count} most recent articles from {source} ({site}).
+BATCH_SEARCH_PROMPT = """\
+You are an AI news researcher. Find the 2 most recent articles from EACH of these sources:
 
-For EACH article, return a JSON object with these fields:
-- "title": article title
+1. OpenAI Blog (openai.com/blog)
+2. Anthropic Blog (anthropic.com/news)
+3. Google DeepMind Blog (deepmind.google/discover/blog)
+4. arXiv notable papers in cs.AI or cs.LG
+5. MIT Technology Review AI (technologyreview.com/topic/artificial-intelligence)
+
+For EACH article (total 10), return a JSON object with:
+- "title": article title translated into Japanese (natural, concise Japanese)
+- "title_en": original article title in English
 - "url": full URL to the article
-- "source": "{source}"
-- "published": publication date in YYYY-MM-DD format (best guess if not exact)
+- "source": source name (e.g. "OpenAI Blog", "Anthropic Blog", etc.)
+- "published": publication date in YYYY-MM-DD format
 
-Return ONLY a JSON array of objects. No markdown fences, no explanation.
+Return ONLY a JSON array of 10 objects. No markdown fences, no explanation.
 """
 
 ANALYSIS_PROMPT_TEMPLATE = """\
-Analyze this AI article and return a JSON object:
+You are a professional AI journalist writing for a Japanese audience.
+Search the web for the full content of this article, then write a detailed summary.
 
 Title: {title}
 URL: {url}
 Source: {source}
+Published: {published}
 
-Return JSON with:
-- "summary": one-sentence summary in Japanese (concise, under 80 chars)
-- "bullet_points": array of exactly 3 key points in Japanese (each under 60 chars)
+Return a JSON object with:
+- "summary": A detailed 4-6 sentence summary in Japanese (200-400 chars). MUST include:
+  1. The publication date (e.g. "2026年4月10日、Anthropicは〜を発表した。")
+  2. WHAT specifically was announced or discovered (concrete details, not vague descriptions)
+  3. HOW it works or what it does (technical specifics, numbers, benchmarks if available)
+  4. WHY it matters and its real-world impact
+  Do NOT write generic summaries. Include specific facts, names, numbers, and details from the article.
+- "bullet_points": array of exactly 3 key takeaways in Japanese. Each must be specific and factual (60-100 chars). Avoid vague phrases like "AIの安全性向上" — instead write concrete facts like "Claude 4.6はコーディング精度が前世代比15%向上"
 - "tags": array of 3-5 relevant tags (English, lowercase, e.g. "llm", "safety", "multimodal")
 - "importance": integer 1-5 (5 = groundbreaking, 1 = minor update)
 
@@ -105,17 +119,14 @@ def _call_gemini(client: genai.Client, model: str, prompt: str, tools=None) -> s
                 raise
 
 
-def fetch_articles_for_source(
-    client: genai.Client, source_name: str, site: str, count: int
-) -> list[dict]:
-    """Use Gemini + Google Search grounding to find recent articles."""
-    prompt = SEARCH_PROMPT_TEMPLATE.format(count=count, source=source_name, site=site)
+def fetch_all_articles(client: genai.Client) -> list[dict]:
+    """Fetch all articles from all sources in a single grounded request."""
     google_search_tool = types.Tool(google_search=types.GoogleSearch())
 
     try:
-        text = _call_gemini(client, "gemini-2.5-flash-lite", prompt, tools=[google_search_tool])
+        text = _call_gemini(client, "gemini-3-flash-preview", BATCH_SEARCH_PROMPT, tools=[google_search_tool])
     except Exception as e:
-        print(f"  ERROR: Failed to fetch from {source_name}: {e}", file=sys.stderr)
+        print(f"  ERROR: Failed to fetch articles: {e}", file=sys.stderr)
         return []
 
     # Strip markdown fences if present
@@ -126,25 +137,26 @@ def fetch_articles_for_source(
     try:
         articles = json.loads(text)
     except json.JSONDecodeError:
-        print(f"  WARNING: Could not parse JSON for {source_name}: {text[:200]}", file=sys.stderr)
+        print(f"  WARNING: Could not parse JSON: {text[:200]}", file=sys.stderr)
         return []
 
     if not isinstance(articles, list):
         articles = [articles]
 
-    return articles[:count]
+    return articles
 
 
 def analyze_article(client: genai.Client, article: dict) -> dict:
-    """Use Gemini to generate summary, bullet points, tags, importance."""
+    """Use Gemini + Google Search grounding to generate detailed summary."""
     prompt = ANALYSIS_PROMPT_TEMPLATE.format(
         title=article.get("title", ""),
         url=article.get("url", ""),
         source=article.get("source", ""),
+        published=article.get("published", "不明"),
     )
 
     try:
-        text = _call_gemini(client, "gemini-2.5-flash-lite", prompt)
+        text = _call_gemini(client, "gemini-3-flash-preview", prompt)
     except Exception as e:
         print(f"  ERROR: Analysis failed for {article.get('title', '?')}: {e}", file=sys.stderr)
         return {
@@ -210,16 +222,10 @@ def main():
     print(f"=== AI Daily Digest — {date_str} ===")
     client = get_client()
 
-    all_articles: list[dict] = []
-
-    # Phase 1: Fetch articles from each source
-    for src in SOURCES:
-        print(f"\n📡 Fetching from {src['name']}...")
-        articles = fetch_articles_for_source(
-            client, src["name"], src["site"], ARTICLES_PER_SOURCE
-        )
-        print(f"   Found {len(articles)} articles")
-        all_articles.extend(articles)
+    # Phase 1: Fetch all articles in one grounded request
+    print("\n📡 Fetching articles from all sources (single batch)...")
+    all_articles = fetch_all_articles(client)
+    print(f"   Found {len(all_articles)} articles")
 
     # Phase 2: Analyze each article
     print(f"\n🔍 Analyzing {len(all_articles)} articles...")

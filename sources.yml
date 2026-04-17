@@ -1,0 +1,63 @@
+sources:
+  # --- Anthropic / Claude 関連（重点取得） ---
+  - name: Anthropic Blog
+    url: anthropic.com/news
+    count: 3
+    category: Claude
+    enabled: true
+  - name: Anthropic Safety Research
+    url: alignment.anthropic.com
+    count: 2
+    category: Claude
+    enabled: true
+  - name: Anthropic Red Team
+    url: red.anthropic.com
+    count: 2
+    category: Claude
+    enabled: true
+  - name: Anthropic Engineering
+    url: anthropic.com/engineering
+    count: 2
+    category: Claude
+    enabled: true
+
+  # --- 主要AI企業 ---
+  - name: OpenAI Blog
+    url: openai.com/blog
+    count: 2
+    category: AI
+    enabled: true
+  - name: Google DeepMind Blog
+    url: deepmind.google/discover/blog
+    count: 2
+    category: AI
+    enabled: true
+  - name: Meta AI Blog
+    url: ai.meta.com/blog
+    count: 2
+    category: AI
+    enabled: true
+
+  # --- テックメディア ---
+  - name: TechCrunch AI
+    url: techcrunch.com/category/artificial-intelligence
+    count: 2
+    category: Media
+    enabled: true
+  - name: The Verge AI
+    url: theverge.com/ai-artificial-intelligence
+    count: 2
+    category: Media
+    enabled: true
+  - name: MIT Technology Review
+    url: technologyreview.com/topic/artificial-intelligence
+    count: 2
+    category: Media
+    enabled: true
+
+  # --- 学術 ---
+  - name: "arXiv (cs.AI / cs.LG)"
+    url: arxiv.org
+    count: 2
+    category: Research
+    enabled: true

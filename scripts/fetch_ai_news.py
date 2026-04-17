@@ -17,6 +17,8 @@ if sys.stderr.encoding != "utf-8":
 MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds
 
+import yaml
+
 from google import genai
 from google.genai import types
 from jinja2 import Environment, FileSystemLoader
@@ -25,16 +27,23 @@ from jinja2 import Environment, FileSystemLoader
 # Config
 # ---------------------------------------------------------------------------
 
-SOURCES = [
-    {"name": "OpenAI Blog", "site": "openai.com/blog"},
-    {"name": "Anthropic Blog", "site": "anthropic.com/news"},
-    {"name": "Google DeepMind Blog", "site": "deepmind.google/discover/blog"},
-    {"name": "arXiv (cs.AI / cs.LG)", "site": "arxiv.org"},
-    {"name": "MIT Technology Review", "site": "technologyreview.com/topic/artificial-intelligence"},
-]
-
-ARTICLES_PER_SOURCE = 2
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+SOURCES_FILE = PROJECT_DIR / "sources.yml"
 JST = timezone(timedelta(hours=9))
+
+
+def load_sources() -> list[dict]:
+    """Load enabled sources from sources.yml."""
+    if not SOURCES_FILE.exists():
+        print("WARNING: sources.yml not found, using defaults.", file=sys.stderr)
+        return [
+            {"name": "OpenAI Blog", "url": "openai.com/blog", "count": 2},
+            {"name": "Anthropic Blog", "url": "anthropic.com/news", "count": 2},
+        ]
+    data = yaml.safe_load(SOURCES_FILE.read_text(encoding="utf-8")) or {}
+    all_sources = data.get("sources", [])
+    # Only return enabled sources
+    return [s for s in all_sources if s.get("enabled", True)]
 
 # ---------------------------------------------------------------------------
 # Gemini client
@@ -54,23 +63,28 @@ def get_client() -> genai.Client:
 # Fetch helpers
 # ---------------------------------------------------------------------------
 
-BATCH_SEARCH_PROMPT = """\
-You are an AI news researcher. Find the 2 most recent articles from EACH of these sources:
+def build_search_prompt(sources: list[dict]) -> str:
+    """Build search prompt dynamically from sources.yml."""
+    source_lines = []
+    total = 0
+    for i, s in enumerate(sources, 1):
+        count = s.get("count", 2)
+        total += count
+        source_lines.append(f"{i}. {s['name']} ({s['url']}) — {count} articles")
 
-1. OpenAI Blog (openai.com/blog)
-2. Anthropic Blog (anthropic.com/news)
-3. Google DeepMind Blog (deepmind.google/discover/blog)
-4. arXiv notable papers in cs.AI or cs.LG
-5. MIT Technology Review AI (technologyreview.com/topic/artificial-intelligence)
+    return f"""\
+You are an AI news researcher. Find the most recent articles from EACH of these sources:
 
-For EACH article (total 10), return a JSON object with:
+{chr(10).join(source_lines)}
+
+For EACH article (total {total}), return a JSON object with:
 - "title": article title translated into Japanese (natural, concise Japanese)
 - "title_en": original article title in English
 - "url": full URL to the article
-- "source": source name (e.g. "OpenAI Blog", "Anthropic Blog", etc.)
+- "source": source name (e.g. "{sources[0]['name']}" etc.)
 - "published": publication date in YYYY-MM-DD format
 
-Return ONLY a JSON array of 10 objects. No markdown fences, no explanation.
+Return ONLY a JSON array of {total} objects. No markdown fences, no explanation.
 """
 
 ANALYSIS_PROMPT_TEMPLATE = """\
@@ -119,12 +133,13 @@ def _call_gemini(client: genai.Client, model: str, prompt: str, tools=None) -> s
                 raise
 
 
-def fetch_all_articles(client: genai.Client) -> list[dict]:
+def fetch_all_articles(client: genai.Client, sources: list[dict]) -> list[dict]:
     """Fetch all articles from all sources in a single grounded request."""
+    prompt = build_search_prompt(sources)
     google_search_tool = types.Tool(google_search=types.GoogleSearch())
 
     try:
-        text = _call_gemini(client, "gemini-3-flash-preview", BATCH_SEARCH_PROMPT, tools=[google_search_tool])
+        text = _call_gemini(client, "gemini-3-flash-preview", prompt, tools=[google_search_tool])
     except Exception as e:
         print(f"  ERROR: Failed to fetch articles: {e}", file=sys.stderr)
         return []
@@ -220,11 +235,18 @@ def main():
     output_file = output_dir / f"{date_str}.md"
 
     print(f"=== AI Daily Digest — {date_str} ===")
+
+    sources = load_sources()
+    if not sources:
+        print("ERROR: No enabled sources found in sources.yml", file=sys.stderr)
+        sys.exit(1)
+    print(f"   Loaded {len(sources)} sources from sources.yml")
+
     client = get_client()
 
     # Phase 1: Fetch all articles in one grounded request
     print("\n📡 Fetching articles from all sources (single batch)...")
-    all_articles = fetch_all_articles(client)
+    all_articles = fetch_all_articles(client, sources)
     print(f"   Found {len(all_articles)} articles")
 
     # Phase 2: Analyze each article

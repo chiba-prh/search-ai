@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.technologyreview.com)",
+      "WebFetch(domain:developers.googleblog.com)",
+      "WebSearch",
+      "WebFetch(domain:blog.google)",
+      "Bash(python scripts/preview_server.py)",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:deepmind.google)",
+      "WebFetch(domain:openai.com)",
+      "Bash(python -c ':*)",
+      "Bash(tasklist)",
+      "Bash(findstr python:*)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":8080\")",
+      "Bash(taskkill /F /PID 35224)",
+      "Bash(taskkill /F /PID 41180)",
+      "Bash(taskkill /F /PID 31456)",
+      "Bash(taskkill /F /PID 35656)",
+      "Bash(taskkill //F //PID 35224)",
+      "Bash(taskkill //F //PID 41180)",
+      "Bash(taskkill //F //PID 31456)",
+      "Bash(taskkill //F //PID 35656)",
+      "Bash(PORT=9090 python scripts/preview_server.py)",
+      "Read(//tmp/**)",
+      "Bash(python scripts/build_static.py)",
+      "Bash(gh api *)",
+      "Bash(gh repo *)",
+      "WebFetch(domain:www.anthropic.com)",
+      "WebFetch(domain:arxiv.org)",
+      "Bash(python -c ' *)",
+      "Bash(python scripts/generate_all.py)",
+      "Bash(python -c \"import re; t = open\\(r'C:\\\\Users\\\\Chiba\\\\Desktop\\\\search-ai\\\\Web記事\\\\AI\\\\2026-04-13.md', encoding='utf-8'\\).read\\(\\); print\\(len\\(re.findall\\(r'^## ', t, re.MULTILINE\\)\\), 'articles'\\)\")",
+      "Bash(python -c \"import re; t = open\\(r'C:\\\\Users\\\\Chiba\\\\Desktop\\\\search-ai\\\\Web記事\\\\AI\\\\2026-04-16.md', encoding='utf-8'\\).read\\(\\); print\\(len\\(re.findall\\(r'^## ', t, re.MULTILINE\\)\\), 'articles'\\)\")",
+      "Bash(.*?)",
+      "Bash(python -u -X utf8 -c ' *)"
+    ]
+  }
+}

@@ -1,36 +1,50 @@
 sources:
   - name: OpenAI Blog
-    url: openai.com/blog
+    url: https://openai.com/blog
+    rss: https://openai.com/news/rss.xml
     count: all
     category: AI
     enabled: true
   - name: Anthropic Blog
-    url: anthropic.com/news
+    url: https://www.anthropic.com/news
+    # Anthropic doesn't provide official RSS; using community feed from Olshansk/rss-feeds
+    rss: https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml
     count: all
     category: AI
     enabled: true
   - name: Google DeepMind Blog
-    url: deepmind.google/discover/blog
+    url: https://deepmind.google/discover/blog
+    rss: https://deepmind.google/blog/rss.xml
     count: all
     category: AI
     enabled: true
-  - name: "arXiv (cs.AI / cs.LG)"
-    url: arxiv.org
+  - name: "arXiv (cs.AI)"
+    url: https://arxiv.org/list/cs.AI/recent
+    rss: http://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sortOrder=descending&max_results=20
+    count: all
+    category: AI
+    enabled: true
+  - name: "arXiv (cs.LG)"
+    url: https://arxiv.org/list/cs.LG/recent
+    rss: http://export.arxiv.org/rss/cs.LG
     count: all
     category: AI
     enabled: true
   - name: MIT Technology Review
-    url: technologyreview.com/topic/artificial-intelligence
+    url: https://www.technologyreview.com/topic/artificial-intelligence
+    rss: https://www.technologyreview.com/topic/artificial-intelligence/feed
     count: all
     category: AI
     enabled: true
   - name: Anthropic (X/Twitter)
-    url: x.com/AnthropicAI
+    url: https://x.com/AnthropicAI
+    rss: ""
     count: all
     category: AI
-    enabled: true
+    enabled: false
   - name: Google Gemini (X/Twitter)
-    url: x.com/GeminiApp
+    url: https://x.com/GeminiApp
+    rss: ""
     count: all
     category: AI
-    enabled: true
+    enabled: false

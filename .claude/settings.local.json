@@ -36,7 +36,8 @@
       "Bash(.*?)",
       "Bash(python -u -X utf8 -c ' *)",
       "WebFetch(domain:x.com)",
-      "Bash(python -u -X utf8)"
+      "Bash(python -u -X utf8)",
+      "Bash(pip install *)"
     ]
   }
 }

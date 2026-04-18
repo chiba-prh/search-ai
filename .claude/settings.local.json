@@ -34,7 +34,9 @@
       "Bash(python -c \"import re; t = open\\(r'C:\\\\Users\\\\Chiba\\\\Desktop\\\\search-ai\\\\Web記事\\\\AI\\\\2026-04-13.md', encoding='utf-8'\\).read\\(\\); print\\(len\\(re.findall\\(r'^## ', t, re.MULTILINE\\)\\), 'articles'\\)\")",
       "Bash(python -c \"import re; t = open\\(r'C:\\\\Users\\\\Chiba\\\\Desktop\\\\search-ai\\\\Web記事\\\\AI\\\\2026-04-16.md', encoding='utf-8'\\).read\\(\\); print\\(len\\(re.findall\\(r'^## ', t, re.MULTILINE\\)\\), 'articles'\\)\")",
       "Bash(.*?)",
-      "Bash(python -u -X utf8 -c ' *)"
+      "Bash(python -u -X utf8 -c ' *)",
+      "WebFetch(domain:x.com)",
+      "Bash(python -u -X utf8)"
     ]
   }
 }

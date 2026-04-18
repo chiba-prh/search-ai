@@ -24,3 +24,13 @@ sources:
     count: all
     category: AI
     enabled: true
+  - name: Anthropic (X/Twitter)
+    url: x.com/AnthropicAI
+    count: all
+    category: AI
+    enabled: true
+  - name: Google Gemini (X/Twitter)
+    url: x.com/GeminiApp
+    count: all
+    category: AI
+    enabled: true

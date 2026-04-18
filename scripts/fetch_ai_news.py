@@ -67,17 +67,31 @@ def build_search_prompt(sources: list[dict]) -> str:
     """Build search prompt dynamically from sources.yml."""
     source_lines = []
     total = 0
+    has_all = False
     for i, s in enumerate(sources, 1):
-        count = s.get("count", 2)
-        total += count
-        source_lines.append(f"{i}. {s['name']} ({s['url']}) — {count} articles")
+        count_raw = s.get("count", 2)
+        # Handle "all" or numeric counts
+        if isinstance(count_raw, str) and count_raw.lower() == "all":
+            count_label = "all available (10-20+)"
+            total += 15  # estimate for prompt sizing
+            has_all = True
+        else:
+            try:
+                count_int = int(count_raw)
+            except (TypeError, ValueError):
+                count_int = 2
+            count_label = f"{count_int} articles"
+            total += count_int
+        source_lines.append(f"{i}. {s['name']} ({s['url']}) — {count_label}")
 
+    target_phrase = f"approximately {total}" if has_all else f"total {total}"
     return f"""\
-You are an AI news researcher. Find the most recent articles from EACH of these sources:
+You are an AI news researcher. Find the most recent articles from EACH of these sources
+(fetch ALL articles visible on the top page for sources marked "all available"):
 
 {chr(10).join(source_lines)}
 
-For EACH article (total {total}), return a JSON object with:
+For EACH article ({target_phrase}), return a JSON object with:
 - "title": article title translated into Japanese (natural, concise Japanese)
 - "title_en": original article title in English
 - "url": full URL to the article

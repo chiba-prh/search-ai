@@ -2,8 +2,8 @@ name: AI Daily Digest
 
 on:
   schedule:
-    # 3時間ごと（UTC基準）
-    - cron: "0 */3 * * *"
+    # 毎朝6時 JST = 21:00 UTC（前日）
+    - cron: "0 21 * * *"
   workflow_dispatch: # 手動実行も可能
 
 permissions:

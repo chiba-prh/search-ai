@@ -1,6 +1,6 @@
 # 📰 AI Daily Digest
 
-AI 関連の最新情報を **3時間ごとに自動収集・日本語要約** してくれるシステム。
+AI 関連の最新情報を **毎朝6時（JST）に自動収集・日本語要約** してくれるシステム。
 GitHub Pages でいつでもブラウザから閲覧でき、ローカルでは Obsidian でもそのまま読めます。
 
 ## 🌐 公開サイト
@@ -19,7 +19,7 @@ GitHub Pages でいつでもブラウザから閲覧でき、ローカルでは 
            ▼
   ┌─────────────────────────────┐
   │  fetch_ai_news.py           │  RSS で記事取得 → Gemini で日本語要約
-  │  (GitHub Actions 3時間毎)   │
+  │  (GitHub Actions 毎朝6時)   │
   └────────┬────────────────────┘
            │
            ▼
@@ -115,7 +115,7 @@ git add docs/ && git commit -m "Update" && git push
 
 ## 🔄 自動化フロー
 
-1. **3時間ごと** に GitHub Actions が発火（cron `0 */3 * * *`）
+1. **毎朝6時 JST** に GitHub Actions が発火（cron `0 21 * * *` UTC）
 2. `fetch_ai_news.py` が 6ソースの RSS をパース（最大 20件/ソース）
 3. `Web記事/AI/` 内の既存記事と URL で重複チェック
 4. 新規記事のみ Gemini API で日本語要約を生成
@@ -150,7 +150,7 @@ GitHub Actions では `GEMINI_API_KEY` を Repository Secrets に登録してく
 
 👉 [Google AI Studio Usage](https://aistudio.google.com/app/usage)
 
-3時間ごとの実行なら無料枠内で収まるはず（Gemini 3 Flash: 1,500 req/日）。
+1日1回の実行なら無料枠内で十分収まります（Gemini 3 Flash: 1,500 req/日）。
 
 ---
 

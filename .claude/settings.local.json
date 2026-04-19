@@ -37,7 +37,10 @@
       "Bash(python -u -X utf8 -c ' *)",
       "WebFetch(domain:x.com)",
       "Bash(python -u -X utf8)",
-      "Bash(pip install *)"
+      "Bash(pip install *)",
+      "Bash(python -c \"import os; print\\('KEY_SET' if os.environ.get\\('GEMINI_API_KEY'\\) else 'NOT_SET'\\)\")",
+      "Bash(gh workflow *)",
+      "Bash(gh run *)"
     ]
   }
 }

@@ -25,7 +25,7 @@ ANALYSIS_PROMPT = """\
 You are a professional AI journalist writing for a Japanese audience.
 Fetch the article at the URL below and write a detailed summary.
 
-Title: {title}
+Title: {title_en}
 URL: {url}
 Source: {source}
 Published: {published}

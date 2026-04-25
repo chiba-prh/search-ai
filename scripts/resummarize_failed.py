@@ -17,8 +17,10 @@ from google.genai import types
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 ARTICLES_DIR = PROJECT_DIR / "Web記事" / "AI"
 
-MAX_RETRIES = 5
-RETRY_DELAY = 8
+MAX_RETRIES = 3
+RETRY_DELAY = 10
+INTER_CALL_DELAY = 3  # seconds between successful calls
+SKIP_ARXIV = os.environ.get("SKIP_ARXIV", "false").lower() == "true"
 
 
 ANALYSIS_PROMPT = """\
@@ -132,7 +134,7 @@ def extract_article_info(block):
 
 def main():
     client = get_client()
-    files = sorted(ARTICLES_DIR.glob("*.md"), reverse=True)
+    files = sorted(ARTICLES_DIR.rglob("*.md"), reverse=True)
     total_failed = 0
     total_fixed = 0
 
@@ -161,8 +163,13 @@ def main():
                 articles_out.append(("keep", section))
                 continue
 
+            # Optionally skip arXiv (research papers, lower priority)
+            if SKIP_ARXIV and "arXiv" in info.get("source", ""):
+                articles_out.append(("keep", section))
+                continue
+
             total_failed += 1
-            print(f"[{md_path.stem}] Re-summarizing: {info['title_en'][:60]}")
+            print(f"[{md_path.parent.name}/{md_path.stem}] Re-summarizing: {info['title_en'][:60]}")
             prompt = ANALYSIS_PROMPT.format(**info)
             try:
                 text_resp = call_gemini(client, prompt)
@@ -171,10 +178,27 @@ def main():
                 articles_out.append(("rebuild", article))
                 total_fixed += 1
                 changed = True
-                time.sleep(1)  # gentle rate-limit
+                time.sleep(INTER_CALL_DELAY)
             except Exception as e:
-                print(f"   ERROR: {e}")
+                err_str = str(e)
+                print(f"   ERROR: {err_str[:200]}")
                 articles_out.append(("keep", section))
+                # Stop entirely if quota is exhausted — no point continuing
+                if "RESOURCE_EXHAUSTED" in err_str or "quota" in err_str.lower():
+                    print("\n🛑 Gemini quota exhausted — stopping. Re-run after reset.")
+                    if changed:
+                        # save progress before exiting
+                        new_text = header.rstrip() + "\n\n"
+                        for j, (kind, item) in enumerate(articles_out, 1):
+                            if kind == "rebuild":
+                                new_text += rebuild_block(j, item) + "\n\n"
+                            else:
+                                renumbered = re.sub(r"^## \d+\.", f"## {j}.", item, count=1)
+                                new_text += renumbered.rstrip() + "\n\n"
+                        md_path.write_text(new_text, encoding="utf-8")
+                        print(f"   💾 Saved partial progress to {md_path.name}")
+                    print(f"\nDone (partial): {total_fixed}/{total_failed} re-summarized")
+                    sys.exit(0)
 
         if not changed:
             continue

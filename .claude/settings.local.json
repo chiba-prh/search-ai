@@ -40,7 +40,12 @@
       "Bash(pip install *)",
       "Bash(python -c \"import os; print\\('KEY_SET' if os.environ.get\\('GEMINI_API_KEY'\\) else 'NOT_SET'\\)\")",
       "Bash(gh workflow *)",
-      "Bash(gh run *)"
+      "Bash(gh run *)",
+      "WebFetch(domain:export.arxiv.org)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(python scripts/fetch_ai_news.py)",
+      "Bash(tee /tmp/fetch_log.txt)",
+      "Bash(env)"
     ]
   }
 }

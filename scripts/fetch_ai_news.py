@@ -44,6 +44,18 @@ ARTICLES_DIR = OUTPUT_ROOT / "Web記事" / "AI"
 
 JST = timezone(timedelta(hours=9))
 
+# Source name → folder name (must match migrate_to_source_folders.py)
+SOURCE_TO_FOLDER = {
+    "OpenAI Blog": "OpenAI",
+    "Anthropic Blog": "Anthropic",
+    "Anthropic (X/Twitter)": "Anthropic",
+    "Google DeepMind Blog": "DeepMind",
+    "Google Gemini (X/Twitter)": "DeepMind",
+    "arXiv (cs.AI)": "arXiv",
+    "arXiv (cs.LG)": "arXiv",
+    "MIT Technology Review": "MIT-TechReview",
+}
+
 
 # ---------------------------------------------------------------------------
 # Sources
@@ -127,12 +139,12 @@ def fetch_rss(source: dict) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def load_existing_urls() -> set[str]:
-    """Scan all existing .md files and collect article URLs."""
+    """Scan all existing .md files (recursively in source folders) and collect article URLs."""
     urls = set()
     if not ARTICLES_DIR.exists():
         return urls
     url_pattern = re.compile(r"\((https?://[^)\s]+)\)")
-    for md in ARTICLES_DIR.glob("*.md"):
+    for md in ARTICLES_DIR.rglob("*.md"):
         for m in url_pattern.finditer(md.read_text(encoding="utf-8")):
             urls.add(m.group(1))
     return urls
@@ -275,10 +287,11 @@ def format_article_block(index: int, article: dict) -> str:
     return "\n".join(lines)
 
 
-def append_to_date_file(date: str, articles: list[dict]) -> int:
-    """Append articles to the YYYY-MM-DD.md file, renumbering sequentially."""
-    ARTICLES_DIR.mkdir(parents=True, exist_ok=True)
-    md_path = ARTICLES_DIR / f"{date}.md"
+def append_to_source_date_file(folder: str, date: str, articles: list[dict]) -> int:
+    """Append articles to Web記事/AI/{folder}/{date}.md, renumbering sequentially."""
+    folder_path = ARTICLES_DIR / folder
+    folder_path.mkdir(parents=True, exist_ok=True)
+    md_path = folder_path / f"{date}.md"
 
     if md_path.exists():
         existing = md_path.read_text(encoding="utf-8")
@@ -286,7 +299,7 @@ def append_to_date_file(date: str, articles: list[dict]) -> int:
         body = existing.rstrip() + "\n\n"
     else:
         existing_count = 0
-        body = f"---\ndate: {date}\n---\n\n"
+        body = f"---\ndate: {date}\nsource: {folder}\n---\n\n"
 
     for i, art in enumerate(articles, start=existing_count + 1):
         body += format_article_block(i, art) + "\n\n"
@@ -336,19 +349,20 @@ def main():
         print(f"  [{i}/{len(new_articles)}] {art.get('source','?')} — {title[:60]}")
         analyzed.append(analyze_article(client, art))
 
-    # Phase 4: Group by published date and write
-    print(f"\n💾 Phase 4: Writing to {ARTICLES_DIR}")
-    by_date: dict[str, list[dict]] = defaultdict(list)
+    # Phase 4: Group by (source-folder, published date) and write
+    print(f"\n💾 Phase 4: Writing to {ARTICLES_DIR} (by source folder)")
+    by_folder_date: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for a in analyzed:
-        by_date[a["published"]].append(a)
+        folder = SOURCE_TO_FOLDER.get(a.get("source", ""), "Other")
+        by_folder_date[(folder, a["published"])].append(a)
 
     total_added = 0
-    for date in sorted(by_date.keys()):
-        n = append_to_date_file(date, by_date[date])
+    for (folder, date) in sorted(by_folder_date.keys()):
+        n = append_to_source_date_file(folder, date, by_folder_date[(folder, date)])
         total_added += n
-        print(f"  {date}: +{n} articles")
+        print(f"  {folder}/{date}: +{n} articles")
 
-    print(f"\n✅ Done. Added {total_added} new articles across {len(by_date)} dates.")
+    print(f"\n✅ Done. Added {total_added} new articles across {len(by_folder_date)} source-date buckets.")
 
 
 if __name__ == "__main__":

@@ -146,8 +146,8 @@ def load_sources() -> list[dict]:
 # Build functions
 # ---------------------------------------------------------------------------
 
-def build_article_page(md_file: Path) -> str:
-    """Build HTML for a single article page."""
+def build_date_page(md_file: Path, source_folder: str) -> str:
+    """Build HTML for a single date page within a source folder."""
     md_text = md_file.read_text(encoding="utf-8")
     if md_text.startswith("---"):
         parts = md_text.split("---", 2)
@@ -185,19 +185,46 @@ def build_article_page(md_file: Path) -> str:
 
     date_label = md_file.stem
     body = f"""
-    <p style="margin-bottom:20px"><a href="index.html">← ホームに戻る</a></p>
-    <h1>📅 {_esc(date_label)}</h1>
+    <p style="margin-bottom:20px"><a href="../index.html">← ホーム</a> / <a href="index.html">{_esc(source_folder)}</a></p>
+    <h1>📅 {_esc(source_folder)} / {_esc(date_label)}</h1>
     <p style="color:var(--text-muted);margin-bottom:20px">{len(items_html)}件の記事</p>
     {''.join(items_html)}
     """
-    return _page(date_label, body)
+    return _page(f"{source_folder} — {date_label}", body)
 
 
-def build_index_page(md_files: list[Path]) -> str:
-    """Build the index (home) HTML page."""
+def build_source_index(source_folder: str, md_files: list[Path]) -> str:
+    """Build per-source index page listing dates."""
+    article_items = []
+    total = 0
+    for f in md_files:
+        date_label = f.stem
+        titles = _extract_titles(f)
+        count = len(titles)
+        total += count
+        article_items.append(
+            f'<a class="article-link" href="{date_label}.html">📅 {_esc(date_label)}'
+            f'<span class="article-count">{count}件</span></a>'
+        )
+
+    body = f"""
+    <p style="margin-bottom:20px"><a href="../index.html">← ホームに戻る</a></p>
+    <h1>📡 {_esc(source_folder)}</h1>
+    <p style="color:var(--text-muted);margin-bottom:20px">{len(md_files)}日分・{total}件の記事</p>
+
+    <div class="section">
+      <div class="section-title">📄 日付一覧</div>
+      {''.join(article_items) or '<p style="color:var(--text-muted)">まだ記事がありません</p>'}
+    </div>
+    """
+    return _page(f"AI Daily Digest — {source_folder}", body)
+
+
+def build_top_index(source_data: dict[str, list[Path]]) -> str:
+    """Build top-level index page listing sources."""
     sources = load_sources()
 
-    # Source list (read-only for static page)
+    # Config source list
     source_items = []
     for s in sources:
         enabled = s.get("enabled", True)
@@ -212,28 +239,27 @@ def build_index_page(md_files: list[Path]) -> str:
           <span class="source-meta">{_esc(s.get('url', ''))}</span>
         </div>""")
 
-    # Article list
-    article_items = []
-    for f in md_files:
-        date_label = f.stem
-        titles = _extract_titles(f)
-        count = len(titles)
-        article_items.append(
-            f'<a class="article-link" href="{date_label}.html">📅 {_esc(date_label)}'
-            f'<span class="article-count">{count}件</span></a>'
+    # Source folder cards
+    folder_items = []
+    for folder in sorted(source_data.keys()):
+        files = source_data[folder]
+        total_articles = sum(len(_extract_titles(f)) for f in files)
+        folder_items.append(
+            f'<a class="article-link" href="{_esc(folder)}/index.html">📂 {_esc(folder)}'
+            f'<span class="article-count">{len(files)}日分 / {total_articles}件</span></a>'
         )
 
     body = f"""
     <h1>AI Daily Digest</h1>
 
     <div class="section">
-      <div class="section-title">📡 ソース一覧（{len(sources)}サイト）</div>
-      {''.join(source_items) or '<p style="color:var(--text-muted)">ソースがありません</p>'}
+      <div class="section-title">📡 ソース別ブラウズ</div>
+      {''.join(folder_items) or '<p style="color:var(--text-muted)">まだ記事がありません</p>'}
     </div>
 
     <div class="section">
-      <div class="section-title">📄 記事一覧</div>
-      {''.join(article_items) or '<p style="color:var(--text-muted)">まだ記事がありません</p>'}
+      <div class="section-title">⚙️ ソース設定（{len(sources)}サイト）</div>
+      {''.join(source_items) or '<p style="color:var(--text-muted)">ソースがありません</p>'}
     </div>
     """
     return _page("AI Daily Digest", body)
@@ -250,21 +276,51 @@ def main():
         print(f"⚠️  ソースディレクトリが見つかりません: {SOURCE_DIR}")
         return
 
-    md_files = sorted(SOURCE_DIR.glob("*.md"), reverse=True)
-    print(f"📄 {len(md_files)} 件のMarkdownファイルを検出")
+    # Discover source folders (e.g. OpenAI/, Anthropic/, ...)
+    source_folders = [d for d in SOURCE_DIR.iterdir() if d.is_dir()]
+    if not source_folders:
+        print(f"⚠️  ソースフォルダが見つかりません: {SOURCE_DIR}")
+        return
 
-    # Build each article page
-    for md_file in md_files:
-        html = build_article_page(md_file)
-        out = DOCS_DIR / f"{md_file.stem}.html"
-        out.write_text(html, encoding="utf-8")
-        titles = _extract_titles(md_file)
-        print(f"  ✅ {out.name} ({len(titles)}件の記事)")
+    # Clean old date HTMLs in docs root (legacy)
+    for old in DOCS_DIR.glob("*.html"):
+        if old.name == "index.html":
+            continue
+        if re.match(r"^\d{4}-\d{2}-\d{2}\.html$", old.name):
+            old.unlink()
 
-    # Build index page
-    index_html = build_index_page(md_files)
-    (DOCS_DIR / "index.html").write_text(index_html, encoding="utf-8")
-    print(f"  ✅ index.html")
+    source_data: dict[str, list[Path]] = {}
+    for folder in sorted(source_folders):
+        md_files = sorted(folder.glob("*.md"), reverse=True)
+        if not md_files:
+            continue
+        source_data[folder.name] = md_files
+
+        # Output dir: docs/{source}/
+        out_dir = DOCS_DIR / folder.name
+        out_dir.mkdir(parents=True, exist_ok=True)
+
+        # Clean stale html files in this folder
+        kept_stems = {f.stem for f in md_files} | {"index"}
+        for old in out_dir.glob("*.html"):
+            if old.stem not in kept_stems:
+                old.unlink()
+
+        # Build per-date pages
+        for md in md_files:
+            html = build_date_page(md, folder.name)
+            (out_dir / f"{md.stem}.html").write_text(html, encoding="utf-8")
+        # Build per-source index
+        idx_html = build_source_index(folder.name, md_files)
+        (out_dir / "index.html").write_text(idx_html, encoding="utf-8")
+
+        total = sum(len(_extract_titles(f)) for f in md_files)
+        print(f"  ✅ {folder.name}/ ({len(md_files)}日分 / {total}件)")
+
+    # Top-level index
+    top_html = build_top_index(source_data)
+    (DOCS_DIR / "index.html").write_text(top_html, encoding="utf-8")
+    print(f"  ✅ index.html (top)")
 
     print(f"\n🌐 静的サイトを {DOCS_DIR} に生成しました")
 

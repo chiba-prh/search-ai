@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arXiv — 2026-09-11</title>
+<style>:root {
+  --bg: #1e1e2e; --surface: #262637; --text: #cdd6f4; --text-muted: #a6adc8;
+  --accent: #f5c2e7; --link: #89b4fa; --border: #45475a; --star: #f9e2af;
+  --tag-bg: #313244; --quote-border: #89b4fa; --green: #a6e3a1; --red: #f38ba8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family:'Segoe UI','Hiragino Sans','Meiryo',sans-serif;
+  line-height:1.8; padding:40px 20px; max-width:900px; margin:0 auto;
+}
+h1 { font-size:1.8em; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:12px; margin-bottom:24px; }
+h2 { font-size:1.3em; color:#cba6f7; margin-top:36px; margin-bottom:8px; }
+h2+p em { color:var(--text-muted); font-size:0.9em; }
+table { border-collapse:collapse; margin:16px 0; font-size:0.92em; width:100%; }
+th,td { border:1px solid var(--border); padding:8px 14px; text-align:left; }
+th { background:var(--surface); color:var(--accent); font-weight:600; }
+td { background:var(--bg); }
+a { color:var(--link); text-decoration:none; } a:hover { text-decoration:underline; }
+blockquote { background:var(--surface); border-left:4px solid var(--quote-border); padding:12px 20px; margin:16px 0; border-radius:0 8px 8px 0; color:var(--text-muted); font-style:italic; }
+ul { margin:12px 0; padding-left:24px; } li { margin:6px 0; line-height:1.7; }
+code { background:var(--tag-bg); padding:2px 8px; border-radius:4px; font-size:0.88em; color:var(--star); }
+hr { border:none; border-top:1px solid var(--border); margin:32px 0; }
+p { margin:10px 0; } strong { color:#f5e0dc; }
+.section { background:var(--surface); border-radius:12px; padding:20px 24px; margin-bottom:24px; }
+.section-title { font-size:1.1em; color:var(--accent); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.source-item {
+  display:flex; align-items:center; gap:12px; padding:10px 14px;
+  border-radius:8px; margin-bottom:8px; background:var(--bg); border:1px solid var(--border);
+}
+.source-item.disabled { opacity:0.5; }
+.source-name { flex:1; font-weight:600; }
+.source-meta { color:var(--text-muted); font-size:0.85em; }
+.badge { background:var(--tag-bg); color:var(--star); padding:2px 10px; border-radius:12px; font-size:0.8em; }
+.article-link {
+  display:flex; align-items:center; padding:12px 16px; border-radius:8px; margin-bottom:6px;
+  background:var(--bg); border:1px solid var(--border); color:var(--link);
+  text-decoration:none; transition:background 0.15s; font-weight:600;
+}
+.article-link:hover { background:var(--surface); text-decoration:none; }
+.article-count { margin-left:auto; color:var(--text-muted); font-size:0.85em; font-weight:400; }
+.article-item { margin-bottom:8px; }
+.article-header {
+  display:flex; align-items:flex-start; gap:10px; padding:14px 16px;
+  background:var(--bg); border:1px solid var(--border); border-radius:8px;
+  cursor:pointer; user-select:none; transition:background 0.15s;
+}
+.article-header:hover { background:var(--surface); }
+.acc-arrow { font-size:0.7em; transition:transform 0.2s; display:inline-block; margin-top:6px; }
+.article-item.open .acc-arrow { transform:rotate(90deg); }
+.article-header-text { flex:1; }
+.article-header-title { font-weight:600; font-size:1em; line-height:1.5; }
+.article-header-meta { display:flex; gap:12px; margin-top:4px; font-size:0.82em; flex-wrap:wrap; }
+.meta-source { color:var(--star); background:var(--tag-bg); padding:1px 8px; border-radius:10px; }
+.meta-date { color:var(--text-muted); }
+.article-detail {
+  display:none; padding:16px 20px; margin:0 0 4px 0;
+  background:var(--surface); border:1px solid var(--border);
+  border-top:none; border-radius:0 0 8px 8px;
+}
+.article-item.open .article-detail { display:block; }
+.article-item.open .article-header { border-radius:8px 8px 0 0; }
+</style>
+</head>
+<body>
+
+    <p style="margin-bottom:20px"><a href="../index.html">← ホーム</a> / <a href="index.html">arXiv</a></p>
+    <h1>📅 arXiv / 2026-09-11</h1>
+    <p style="color:var(--text-muted);margin-bottom:20px">40件の記事</p>
+    
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">GPU-CFR: 80x Faster Counterfactual Regret Minimization by Compiling the Game to Static Dataflow and CUDA Graph Replay</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>1. GPU-CFR: 80x Faster Counterfactual Regret Minimization by Compiling the Game to Static Dataflow and CUDA Graph Replay</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11923v1">https://arxiv.org/abs/2609.11923v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">General Quantification of Covariate and Concept Shifts</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>2. General Quantification of Covariate and Concept Shifts</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11918v1">https://arxiv.org/abs/2609.11918v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Can Edge-Deployable Vision-Language Models Identify Species?</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>3. Can Edge-Deployable Vision-Language Models Identify Species?</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11916v1">https://arxiv.org/abs/2609.11916v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Generative Marketing Mix Modeling: A Causal Inference Framework Linking GEO and GEM to Business Impact</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>4. Generative Marketing Mix Modeling: A Causal Inference Framework Linking GEO and GEM to Business Impact</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11915v1">https://arxiv.org/abs/2609.11915v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Artificial Id: Drive and Persistent Alignment in Agentic AI</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>5. Artificial Id: Drive and Persistent Alignment in Agentic AI</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11911v1">https://arxiv.org/abs/2609.11911v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">MindTopo: Can Foundation Models Reason in Topological Space?</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>6. MindTopo: Can Foundation Models Reason in Topological Space?</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11900v1">https://arxiv.org/abs/2609.11900v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Domain-Specific Hallucination Detection in Large Language Models</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>7. Domain-Specific Hallucination Detection in Large Language Models</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11878v1">https://arxiv.org/abs/2609.11878v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Biology-in-the-loop: Amortized Adaptive Hit Discovery in CRISPR Screens</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>8. Biology-in-the-loop: Amortized Adaptive Hit Discovery in CRISPR Screens</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11877v1">https://arxiv.org/abs/2609.11877v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">On the Regularization Landscape for the Linear Recommendation Models</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>9. On the Regularization Landscape for the Linear Recommendation Models</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11876v1">https://arxiv.org/abs/2609.11876v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>10. The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11873v1">https://arxiv.org/abs/2609.11873v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">RetroThinker: Enabling Retrospective Thinking in Speech LLMs</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>11. RetroThinker: Enabling Retrospective Thinking in Speech LLMs</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11864v1">https://arxiv.org/abs/2609.11864v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Explainability Assistant: A Conversational XAI Interface for Interpreting Energy Consumption Models</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>12. Explainability Assistant: A Conversational XAI Interface for Interpreting Energy Consumption Models</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11860v1">https://arxiv.org/abs/2609.11860v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">From Parameters to Answers: How LLMs Retrieve and Use Their Internal Knowledge</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>13. From Parameters to Answers: How LLMs Retrieve and Use Their Internal Knowledge</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11859v1">https://arxiv.org/abs/2609.11859v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Model-Aware Schedules Improve Generation via Fiberwise Optimal Transport</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>14. Model-Aware Schedules Improve Generation via Fiberwise Optimal Transport</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11842v1">https://arxiv.org/abs/2609.11842v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Understanding Operator Attitudes Toward AI-Supported Decision Making in Maritime Operations</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>15. Understanding Operator Attitudes Toward AI-Supported Decision Making in Maritime Operations</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11805v1">https://arxiv.org/abs/2609.11805v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Logit Refiner: Improving Visual Autoregressive Models via Intra-Scale Dependency Modeling</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>16. Logit Refiner: Improving Visual Autoregressive Models via Intra-Scale Dependency Modeling</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11804v1">https://arxiv.org/abs/2609.11804v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Thinking with Looped Flows</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>17. Thinking with Looped Flows</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11801v1">https://arxiv.org/abs/2609.11801v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Beyond Word Error Rate: A Switch Aware Evaluation of ASR and Audio Language Models on English Yoruba Code-Switched Speech</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>18. Beyond Word Error Rate: A Switch Aware Evaluation of ASR and Audio Language Models on English Yoruba Code-Switched Speech</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11786v1">https://arxiv.org/abs/2609.11786v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Recognizing Is Not Reversing: A Controlled Inversion Test of Fact-Preserving News Framing</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>19. Recognizing Is Not Reversing: A Controlled Inversion Test of Fact-Preserving News Framing</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11769v1">https://arxiv.org/abs/2609.11769v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">A Unified Per-Token Gating Family for On-Policy Distillation: FKL/RKL Mixing with Multi-Channel and Bias Coefficients</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>20. A Unified Per-Token Gating Family for On-Policy Distillation: FKL/RKL Mixing with Multi-Channel and Bias Coefficients</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.11768v1">https://arxiv.org/abs/2609.11768v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">M3-Former: Multimodal Transformer with Mixture-of-Experts for Long-Term Vessel Trajectory Prediction</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>21. M3-Former: Multimodal Transformer with Mixture-of-Experts for Long-Term Vessel Trajectory Prediction</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10559">https://arxiv.org/abs/2609.10559</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Halo: Improving forecast accuracy through heteroscedastic estimation</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>22. Halo: Improving forecast accuracy through heteroscedastic estimation</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10589">https://arxiv.org/abs/2609.10589</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Zero-shot rib design: merging training-free generative prior with topology optimization</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>23. Zero-shot rib design: merging training-free generative prior with topology optimization</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10643">https://arxiv.org/abs/2609.10643</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Byzantine-Robust Federated Fire Detection with a Rotating Coordinator</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>24. Byzantine-Robust Federated Fire Detection with a Rotating Coordinator</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10647">https://arxiv.org/abs/2609.10647</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Artificial Intelligence Algorithms for the Detection of Pathologies Related to Lung Cancer through Image Analysis using Convolutional Neural Networks and Data Augmentation: a systematic mapping of the literature</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>25. Artificial Intelligence Algorithms for the Detection of Pathologies Related to Lung Cancer through Image Analysis using Convolutional Neural Networks and Data Augmentation: a systematic mapping of the literature</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10652">https://arxiv.org/abs/2609.10652</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">GEOSTEER: Geodesic Optimization for Activation Steering in Large Language Models</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>26. GEOSTEER: Geodesic Optimization for Activation Steering in Large Language Models</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10658">https://arxiv.org/abs/2609.10658</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Conformal Calibration Transfer</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>27. Conformal Calibration Transfer</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10737">https://arxiv.org/abs/2609.10737</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">The Truth Was Never Gone: Perfect Aliasing in Compliant-Context Truth Probes</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>28. The Truth Was Never Gone: Perfect Aliasing in Compliant-Context Truth Probes</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10739">https://arxiv.org/abs/2609.10739</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Adaptive Margin Ordinal Loss: Penalizing Center-Class Hedging in Ordinal Classification</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>29. Adaptive Margin Ordinal Loss: Penalizing Center-Class Hedging in Ordinal Classification</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10752">https://arxiv.org/abs/2609.10752</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">A Bellman Optimality Equation for Plasticity</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>30. A Bellman Optimality Equation for Plasticity</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10776">https://arxiv.org/abs/2609.10776</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Counterfactual Marginalisation: Framework for Evaluating Robustness to Nuisance Variables</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>31. Counterfactual Marginalisation: Framework for Evaluating Robustness to Nuisance Variables</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10778">https://arxiv.org/abs/2609.10778</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">From Connectivity to Rewards: Dense Reward Learning with Directed State Graphs</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>32. From Connectivity to Rewards: Dense Reward Learning with Directed State Graphs</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10781">https://arxiv.org/abs/2609.10781</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">DR-LabStack: Design and Implementation of a Clinician-Facing Web System for Diabetic Retinopathy Prediction</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>33. DR-LabStack: Design and Implementation of a Clinician-Facing Web System for Diabetic Retinopathy Prediction</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10796">https://arxiv.org/abs/2609.10796</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">RiVaT-Fuse: Reliability-Calibrated Variational Tensor Fusion for Multimodal Prediction under Modality Uncertainty</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>34. RiVaT-Fuse: Reliability-Calibrated Variational Tensor Fusion for Multimodal Prediction under Modality Uncertainty</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10798">https://arxiv.org/abs/2609.10798</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Processing and classifying bird songs using wavelet techniques and supervised learning</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>35. Processing and classifying bird songs using wavelet techniques and supervised learning</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10826">https://arxiv.org/abs/2609.10826</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Flow Duality and Source Geometry for Categorical Generation</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>36. Flow Duality and Source Geometry for Categorical Generation</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10863">https://arxiv.org/abs/2609.10863</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Certifying Lower Bounds for Risk-Sensitive Reinforcement Learning under Adversarial State Perturbations</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>37. Certifying Lower Bounds for Risk-Sensitive Reinforcement Learning under Adversarial State Perturbations</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10866">https://arxiv.org/abs/2609.10866</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Learning Orthogonal Multi-Index Models Beyond Small Initialization: Incremental Learning, Competitive Dynamics and Symmetry</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>38. Learning Orthogonal Multi-Index Models Beyond Small Initialization: Incremental Learning, Competitive Dynamics and Symmetry</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10879">https://arxiv.org/abs/2609.10879</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Story Imprinting: AI Assistants Absorb Traits from Human Characters They Resemble</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>39. Story Imprinting: AI Assistants Absorb Traits from Human Characters They Resemble</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10883">https://arxiv.org/abs/2609.10883</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Relatively Smart II: Tractable or Semi-Supervised Instance-Optimal Learning</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.LG)</span>
+                <span class="meta-date">2026-09-11</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>40. Relatively Smart II: Tractable or Semi-Supervised Instance-Optimal Learning</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2609.10886">https://arxiv.org/abs/2609.10886</a> |
+| <strong>Source</strong> | arXiv (cs.LG) |
+| <strong>Published</strong> | 2026-09-11 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+    
+<script></script>
+</body>
+</html>

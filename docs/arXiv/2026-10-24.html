@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arXiv — 2026-10-24</title>
+<style>:root {
+  --bg: #1e1e2e; --surface: #262637; --text: #cdd6f4; --text-muted: #a6adc8;
+  --accent: #f5c2e7; --link: #89b4fa; --border: #45475a; --star: #f9e2af;
+  --tag-bg: #313244; --quote-border: #89b4fa; --green: #a6e3a1; --red: #f38ba8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family:'Segoe UI','Hiragino Sans','Meiryo',sans-serif;
+  line-height:1.8; padding:40px 20px; max-width:900px; margin:0 auto;
+}
+h1 { font-size:1.8em; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:12px; margin-bottom:24px; }
+h2 { font-size:1.3em; color:#cba6f7; margin-top:36px; margin-bottom:8px; }
+h2+p em { color:var(--text-muted); font-size:0.9em; }
+table { border-collapse:collapse; margin:16px 0; font-size:0.92em; width:100%; }
+th,td { border:1px solid var(--border); padding:8px 14px; text-align:left; }
+th { background:var(--surface); color:var(--accent); font-weight:600; }
+td { background:var(--bg); }
+a { color:var(--link); text-decoration:none; } a:hover { text-decoration:underline; }
+blockquote { background:var(--surface); border-left:4px solid var(--quote-border); padding:12px 20px; margin:16px 0; border-radius:0 8px 8px 0; color:var(--text-muted); font-style:italic; }
+ul { margin:12px 0; padding-left:24px; } li { margin:6px 0; line-height:1.7; }
+code { background:var(--tag-bg); padding:2px 8px; border-radius:4px; font-size:0.88em; color:var(--star); }
+hr { border:none; border-top:1px solid var(--border); margin:32px 0; }
+p { margin:10px 0; } strong { color:#f5e0dc; }
+.section { background:var(--surface); border-radius:12px; padding:20px 24px; margin-bottom:24px; }
+.section-title { font-size:1.1em; color:var(--accent); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.source-item {
+  display:flex; align-items:center; gap:12px; padding:10px 14px;
+  border-radius:8px; margin-bottom:8px; background:var(--bg); border:1px solid var(--border);
+}
+.source-item.disabled { opacity:0.5; }
+.source-name { flex:1; font-weight:600; }
+.source-meta { color:var(--text-muted); font-size:0.85em; }
+.badge { background:var(--tag-bg); color:var(--star); padding:2px 10px; border-radius:12px; font-size:0.8em; }
+.article-link {
+  display:flex; align-items:center; padding:12px 16px; border-radius:8px; margin-bottom:6px;
+  background:var(--bg); border:1px solid var(--border); color:var(--link);
+  text-decoration:none; transition:background 0.15s; font-weight:600;
+}
+.article-link:hover { background:var(--surface); text-decoration:none; }
+.article-count { margin-left:auto; color:var(--text-muted); font-size:0.85em; font-weight:400; }
+.article-item { margin-bottom:8px; }
+.article-header {
+  display:flex; align-items:flex-start; gap:10px; padding:14px 16px;
+  background:var(--bg); border:1px solid var(--border); border-radius:8px;
+  cursor:pointer; user-select:none; transition:background 0.15s;
+}
+.article-header:hover { background:var(--surface); }
+.acc-arrow { font-size:0.7em; transition:transform 0.2s; display:inline-block; margin-top:6px; }
+.article-item.open .acc-arrow { transform:rotate(90deg); }
+.article-header-text { flex:1; }
+.article-header-title { font-weight:600; font-size:1em; line-height:1.5; }
+.article-header-meta { display:flex; gap:12px; margin-top:4px; font-size:0.82em; flex-wrap:wrap; }
+.meta-source { color:var(--star); background:var(--tag-bg); padding:1px 8px; border-radius:10px; }
+.meta-date { color:var(--text-muted); }
+.article-detail {
+  display:none; padding:16px 20px; margin:0 0 4px 0;
+  background:var(--surface); border:1px solid var(--border);
+  border-top:none; border-radius:0 0 8px 8px;
+}
+.article-item.open .article-detail { display:block; }
+.article-item.open .article-header { border-radius:8px 8px 0 0; }
+</style>
+</head>
+<body>
+
+    <p style="margin-bottom:20px"><a href="../index.html">← ホーム</a> / <a href="index.html">arXiv</a></p>
+    <h1>📅 arXiv / 2026-10-24</h1>
+    <p style="color:var(--text-muted);margin-bottom:20px">20件の記事</p>
+    
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">SceneBloom: Agentic Indoor Environment Generation with Realistic and Diverse Layouts for Embodied Learning</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>1. SceneBloom: Agentic Indoor Environment Generation with Realistic and Diverse Layouts for Embodied Learning</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32978v1">https://arxiv.org/abs/2610.32978v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">RobustRLlib: A Unified Library and Benchmark for Robust Reinforcement Learning Algorithms</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>2. RobustRLlib: A Unified Library and Benchmark for Robust Reinforcement Learning Algorithms</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32971v1">https://arxiv.org/abs/2610.32971v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">DexPort: A Hand-Held Skill Interface for Dexterous Hand Data Collection</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>3. DexPort: A Hand-Held Skill Interface for Dexterous Hand Data Collection</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32969v1">https://arxiv.org/abs/2610.32969v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Beyond Discrete Tokens: Preserving Numerical Continuity in Medical Vision-Language Models</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>4. Beyond Discrete Tokens: Preserving Numerical Continuity in Medical Vision-Language Models</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32948v1">https://arxiv.org/abs/2610.32948v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Monetizing Intelligence: Advertising and Subscription Design on LLM Platforms</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>5. Monetizing Intelligence: Advertising and Subscription Design on LLM Platforms</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32945v1">https://arxiv.org/abs/2610.32945v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Yalda-Embedding: Open Development of a Competitive Persian Retrieval Model</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>6. Yalda-Embedding: Open Development of a Competitive Persian Retrieval Model</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32933v1">https://arxiv.org/abs/2610.32933v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">SemantEq: Faithful Bidirectional Equivalence of Formal Statements</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>7. SemantEq: Faithful Bidirectional Equivalence of Formal Statements</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32919v1">https://arxiv.org/abs/2610.32919v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Green Code or Costly Code? Evaluating the Energy Costs of Iterative LLM-Based Code Optimizations</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>8. Green Code or Costly Code? Evaluating the Energy Costs of Iterative LLM-Based Code Optimizations</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32891v1">https://arxiv.org/abs/2610.32891v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Closing the Modality Gap via Simplex-Constrained Representations</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>9. Closing the Modality Gap via Simplex-Constrained Representations</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32890v1">https://arxiv.org/abs/2610.32890v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">NgramRL: Accelerating RL Post-Training for Structured Generation via Rollout-Aware N-gram Speculative Decoding</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>10. NgramRL: Accelerating RL Post-Training for Structured Generation via Rollout-Aware N-gram Speculative Decoding</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32881v1">https://arxiv.org/abs/2610.32881v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Advancing SVD-based LLM Compression via Layer-Wise Error Model Search</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>11. Advancing SVD-based LLM Compression via Layer-Wise Error Model Search</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32878v1">https://arxiv.org/abs/2610.32878v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Do &quot;True&quot; and &quot;False&quot; Add Up to One? Complement Consistency in LLM-Agent Opinion Simulations</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>12. Do "True" and "False" Add Up to One? Complement Consistency in LLM-Agent Opinion Simulations</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32874v1">https://arxiv.org/abs/2610.32874v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">From Deliberately Constructed Systemic Representations of the World of Activity to Dialogue: A Five-Level Communication Architecture for Strong Language-Based ASI</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>13. From Deliberately Constructed Systemic Representations of the World of Activity to Dialogue: A Five-Level Communication Architecture for Strong Language-Based ASI</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32869v1">https://arxiv.org/abs/2610.32869v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Interpretable sparse fine-tuning with TopKLoRA enables faithful circuit discovery</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>14. Interpretable sparse fine-tuning with TopKLoRA enables faithful circuit discovery</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32866v1">https://arxiv.org/abs/2610.32866v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">PoKER: A Probability of Kill Estimation Rate Model for Air-to-Air Missiles Using Machine Learning on Stochastic Targets</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>15. PoKER: A Probability of Kill Estimation Rate Model for Air-to-Air Missiles Using Machine Learning on Stochastic Targets</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32864v1">https://arxiv.org/abs/2610.32864v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">A Foundation Model for Policy In-Context Longitudinal Causal Effect Estimation</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>16. A Foundation Model for Policy In-Context Longitudinal Causal Effect Estimation</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32863v1">https://arxiv.org/abs/2610.32863v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Reimagining Enterprise RAG for Multi-Agent Systems: A Knowledge Layer That Organizes Before It Retrieves</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>17. Reimagining Enterprise RAG for Multi-Agent Systems: A Knowledge Layer That Organizes Before It Retrieves</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32851v1">https://arxiv.org/abs/2610.32851v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">HarnessMM: Recursive Self-Improvement for Harness Token Efficiency</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>18. HarnessMM: Recursive Self-Improvement for Harness Token Efficiency</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32813v1">https://arxiv.org/abs/2610.32813v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Multiplicative vs. Additive State Coupling in Learned Optimizer Schedules</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>19. Multiplicative vs. Additive State Coupling in Learned Optimizer Schedules</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32801v1">https://arxiv.org/abs/2610.32801v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+        <div class="article-item">
+          <div class="article-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="acc-arrow">▶</span>
+            <div class="article-header-text">
+              <div class="article-header-title">Every Edge Needs a Quote: Building a Quote-Grounded Knowledge Graph of Healthcare Software Adoption with Language-Model Agents</div>
+              <div class="article-header-meta">
+                <span class="meta-source">arXiv (cs.AI)</span>
+                <span class="meta-date">2026-10-24</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail"><h2>20. Every Edge Needs a Quote: Building a Quote-Grounded Knowledge Graph of Healthcare Software Adoption with Language-Model Agents</h2>
+<p>| <strong>URL</strong> | <a href="https://arxiv.org/abs/2610.32781v1">https://arxiv.org/abs/2610.32781v1</a> |
+| <strong>Source</strong> | arXiv (cs.AI) |
+| <strong>Published</strong> | 2026-10-24 |
+| <strong>Importance</strong> | ★☆☆☆☆ (1/5) |</p>
+<blockquote>
+<p>要約の取得に失敗しました。</p>
+</blockquote>
+<p><strong>重要ポイント:</strong>
+- N/A
+- N/A
+- N/A</p>
+<p><code>ai</code></p>
+<hr /></div>
+        </div>
+    
+<script></script>
+</body>
+</html>
